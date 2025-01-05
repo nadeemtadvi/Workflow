@@ -14,10 +14,10 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-lg w-full space-y-8 p-8 bg-white rounded-lg shadow-lg">
+    <div className="min-h-screen flex items-center justify-center bg-gray-900">
+      <div className="max-w-lg w-full space-y-8 p-8 bg-gray-800 rounded-lg shadow-lg">
         <div>
-          <h2 className="mt-6 text-center text-2xl font-medium text-gray-900">
+          <h2 className="mt-6 text-center text-2xl font-medium text-white">
             Sign in to your account
           </h2>
         </div>
@@ -34,7 +34,7 @@ const Login = () => {
                 name="email"
                 type="email"
                 required
-                className="appearance-none  relative block w-full px-3 py-2.5 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-xl"
+                className="appearance-none relative block w-full px-3 py-2.5 border border-gray-600 placeholder-gray-400 text-white bg-gray-700 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-xl"
                 placeholder="Email address"
               />
             </div>
@@ -49,7 +49,7 @@ const Login = () => {
                 name="password"
                 type="password"
                 required
-                className="appearance-none  relative block w-full px-3 py-2.5 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-xl"
+                className="appearance-none relative block w-full px-3 py-2.5 border border-gray-600 placeholder-gray-400 text-white bg-gray-700 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-xl"
                 placeholder="Password"
               />
             </div>
@@ -61,11 +61,11 @@ const Login = () => {
                 id="remember-me"
                 name="remember-me"
                 type="checkbox"
-                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-600 rounded bg-gray-700"
               />
               <label
                 htmlFor="remember-me"
-                className="ml-2 block text-lg text-gray-900"
+                className="ml-2 block text-lg text-gray-200"
               >
                 Remember me
               </label>
@@ -74,7 +74,7 @@ const Login = () => {
             <div className="text-lg">
               <a
                 href="#"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
+                className="font-medium text-indigo-400 hover:text-indigo-300"
               >
                 Forgot your password?
               </a>

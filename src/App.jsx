@@ -37,15 +37,22 @@ const App = () => {
     }
   };
 
+  const logOutuser = ()=> {
+    localStorage.setItem('loggedInUser','')
+    window.location.reload()
+  }
+
   return (
     <>
+    <div className="bg-gradient-to-br from-gray-50 to-white">
       {!userRole ? (
         <Login handleLogin={handleLogin} />
       ) : userRole === "admin" ? (
-        <Admin />
-      ) : (
-        <Dashboard data={loggedInUser} />
-      )}
+        <Admin logOutuser={logOutuser}/>
+      ) : (userRole === "user" ? (
+        <Dashboard data={loggedInUser} logOutuser={logOutuser}/>
+      ) : null)}
+      </div>
     </>
   );
 };

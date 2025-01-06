@@ -1,19 +1,19 @@
 import React from "react";
 
-const NewTask = () => {
+const NewTask = ({data}) => {
   return (
     <div className="flex-shrink-0 w-[300px] h-[240px] bg-blue-100 p-4 rounded-lg shadow-md  border-blue-400">
       <div className="flex flex-col h-full justify-between">
         <div>
           <div className="flex justify-between items-center">
             <span className="text-blue-500 bg-white text-xs px-2 py-1 rounded">
-              Low
+            {data.category}
             </span>
-            <span className="text-lg text-gray-500">12/12/2025</span>
+            <span className="text-lg text-gray-500">{data.date}</span>
           </div>
-          <h2 className="text-xl font-semibold text-gray-800 mt-2">New Task</h2>
+          <h2 className="text-xl font-semibold text-gray-800 mt-2"> {data.title}</h2>
           <p className="text-gray-500 text-lg mt-1">
-            A new task is ready for you to accept.
+          {data.description}
           </p>
         </div>
         <div className="mt-4 flex justify-end">

@@ -27,7 +27,7 @@ const Login = ({ handleLogin }) => {
               name="email"
               type="email"
               required
-              className="w-full px-4 py-2 mt-2 border rounded"
+              className="w-full px-4 py-2 mt-2 border bg-gray-50 outline-none focus:ring-1 ring-blue-400 rounded"
               placeholder="Enter your email"
             />
           </div>
@@ -42,7 +42,7 @@ const Login = ({ handleLogin }) => {
               name="password"
               type="password"
               required
-              className="w-full px-4 py-2 mt-2 border rounded"
+              className="w-full px-4 py-2 mt-2 border bg-gray-50 outline-none focus:ring-1 ring-blue-400 rounded"
               placeholder="Enter your password"
             />
           </div>

@@ -3,22 +3,20 @@ import CompleteTask from "../TaskList/CompleteTask";
 import AcceptTask from "../TaskList/AcceptTask";
 import FailedTask from "../TaskList/FailedTask";
 import NewTask from "../TaskList/NewTask";
+import Header from "../Header";
 
-const Dashboard = ({ data }) => {
-  const [username, setUsername] = useState("");
-  if (!data) {
-    setUsername("admin");
-  } else {
-    setUsername(data.firstname);
-  }
+const Dashboard = ({ data , logOutuser}) => {
+  // const [username, setUsername] = useState("");
+  // if (!data) {
+  //   setUsername("admin");
+  // } else {
+  //   setUsername(data.firstname);
+  // }
+
+  
   return (
-    <div className="min-h-screen bg-[#f7f7f7] font-sans ">
-      <div className="p-4 flex bg-white shadow-sm justify-between items-center">
-        <h1 className="text-2xl font-bold">{username} 👋</h1>
-        <button className="bg-red-500 text-white px-4 py-2 rounded">
-          Log Out
-        </button>
-      </div>
+    <div className="min-h-screen font-sans ">
+      <Header logOutuser={logOutuser}/>
 
       <div className="p-4 ">
         {/* Task Overview Cards */}
@@ -50,16 +48,16 @@ const Dashboard = ({ data }) => {
           >
             {data.tasks.map((elem, idx) => {
               if (elem.active) {
-                return <AcceptTask key={idx} />;
+                return <AcceptTask key={idx} data={elem} />;
               }
               if (elem.completed) {
-                return <CompleteTask key={idx} />;
+                return <CompleteTask key={idx} data={elem}/>;
               }
               if (elem.failed) {
-                return <FailedTask key={idx} />;
+                return <FailedTask key={idx} data={elem}/>;
               }
               if (elem.newTask) {
-                return <NewTask key={idx} />;
+                return <NewTask key={idx} data={elem}/>;
               }
             })}
           </div>

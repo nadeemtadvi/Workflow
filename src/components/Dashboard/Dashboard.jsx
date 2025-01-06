@@ -5,7 +5,7 @@ import FailedTask from "../TaskList/FailedTask";
 import NewTask from "../TaskList/NewTask";
 import Header from "../Header";
 
-const Dashboard = ({ data , logOutuser}) => {
+const Dashboard = ({ data , logOutuser , changeUser}) => {
   // const [username, setUsername] = useState("");
   // if (!data) {
   //   setUsername("admin");
@@ -16,27 +16,27 @@ const Dashboard = ({ data , logOutuser}) => {
   
   return (
     <div className="min-h-screen font-sans ">
-      <Header logOutuser={logOutuser}/>
+      <Header logOutuser={logOutuser} changeUser={changeUser}/>
 
       <div className="p-4 ">
         {/* Task Overview Cards */}
         <div
           id="task-container"
-          className="grid grid-cols-2 md:grid-cols-4 gap-6  text-white"
+          className="grid grid-cols-2 md:grid-cols-4 gap-1  text-black border-y  border-dashed border-gray-300"
         >
-          <div className="bg-blue-500  text-center p-4 rounded-lg shadow-lg">
+          <div className=" text-center p-4  border-r border-dashed border-gray-300">
             <p className="text-3xl font-bold">{data.taskNumbers.newTask}</p>
-            <p className="text-xl">New Task</p>
+            <p className="text-xl ">New Task</p>
           </div>
-          <div className="bg-green-500 text-center p-4 rounded-lg shadow-lg">
+          <div className=" text-center p-4 border-r border-dashed border-gray-300">
             <p className="text-3xl font-bold">{data.taskNumbers.completed}</p>
             <p className="text-xl">Completed</p>
           </div>
-          <div className="bg-yellow-500 text-center p-4 rounded-lg shadow-lg">
+          <div className=" text-center p-4 border-r border-dashed border-gray-300">
             <p className="text-3xl font-bold">{data.taskNumbers.active}</p>
             <p className="text-xl">Accepted</p>
           </div>
-          <div className="bg-red-500 text-center p-4 rounded-lg shadow-lg">
+          <div className="text-center p-4 rounded-lg ">
             <p className="text-3xl font-bold">{data.taskNumbers.failed}</p>
             <p className="text-xl">Failed</p>
           </div>

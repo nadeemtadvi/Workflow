@@ -4,11 +4,11 @@ const AcceptTask = ({data}) => {
   console.log('task data',data.title);
   
   return (
-    <div className="flex-shrink-0 w-[300px] h-[240px]  p-4 rounded-lg shadow-md bg-yellow-100  border-yellow-400">
+    <div className="flex-shrink-0 w-[300px] h-[240px]  p-4 rounded-lg shadow-md bg-orange-100  border-orange-400">
       <div className="flex flex-col h-full justify-between">
         <div>
           <div className="flex justify-between items-center">
-            <span className="text-yellow-500 bg-white text-xs px-2 py-1 rounded">
+            <span className="text-orange-500 bg-white text-xs px-2 py-1 rounded">
               {data.category}
             </span>
             <span className="text-lg text-gray-500">{data.date}</span>

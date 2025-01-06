@@ -14,10 +14,10 @@ const App = () => {
     const logUser = localStorage.getItem("loggedInUser");
     if (logUser) {
       const userData = JSON.parse(logUser);
-     setUserRole(userData.role);
-     setLoggedInUser(userData.data)
+      setUserRole(userData.role);
+      setLoggedInUser(userData.data);
     }
-  },[]);
+  }, []);
 
   const handleLogin = (email, password) => {
     if (email === "admin@example.com" && password === "123") {
@@ -30,28 +30,32 @@ const App = () => {
       if (user) {
         setUserRole("user");
         setLoggedInUser(user);
-        localStorage.setItem("loggedInUser", JSON.stringify({ role: "user", data:user }));
+        localStorage.setItem(
+          "loggedInUser",
+          JSON.stringify({ role: "user", data: user })
+        );
       } else {
         alert("Invalid credentials");
       }
     }
   };
 
-  const logOutuser = ()=> {
-    localStorage.setItem('loggedInUser','')
-    window.location.reload()
-  }
+  const logOutuser = () => {
+    localStorage.setItem("loggedInUser", "");
+    setUserRole('')
+    // window.location.reload()
+  };
 
   return (
     <>
-    <div className="bg-gradient-to-br from-gray-50 to-white">
-      {!userRole ? (
-        <Login handleLogin={handleLogin} />
-      ) : userRole === "admin" ? (
-        <Admin logOutuser={logOutuser}/>
-      ) : (userRole === "user" ? (
-        <Dashboard data={loggedInUser} logOutuser={logOutuser}/>
-      ) : null)}
+      <div className="bg-gradient-to-br from-gray-50 to-white">
+        {!userRole ? (
+          <Login handleLogin={handleLogin} />
+        ) : userRole === "admin" ? (
+          <Admin logOutuser={logOutuser} changeUser={setUserRole}/>
+        ) : userRole === "user" ? (
+          <Dashboard data={loggedInUser} logOutuser={logOutuser} changeUser={setUserRole}/>
+        ) : null}
       </div>
     </>
   );

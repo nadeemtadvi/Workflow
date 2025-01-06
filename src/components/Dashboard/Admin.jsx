@@ -6,25 +6,48 @@ import UserList from "../UserList";
 const Admin = ({ logOutuser, changeUser }) => {
   const authData = useContext(AuthContext);
   console.log(authData);
-  const  [title, setTitle] = useState('')
-  const [desc, setDesc] = useState('')
-  const [date, setDate] = useState('')
-  const [assign, setAssign] = useState('')
-  const [category, setCategory] = useState('')
- 
-const [task, setTask] = useState({})
- 
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+  const [date, setDate] = useState("");
+  const [assign, setAssign] = useState("");
+  const [category, setCategory] = useState("");
+
+  const [newtask, setnewTask] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTask({title,desc,assign,date,category,active:false,newTask:true,failed:true,completed:false})
-    console.log(task);
-    
+    setnewTask({
+      title,
+      desc,
+      assign,
+      date,
+      category,
+      active: false,
+      newTask: true,
+      failed: false,
+      completed: false,
+    });
+    const data = JSON.parse(localStorage.getItem("users"));
+
+    data.forEach(function (elem) {
+      if (assign == elem.firstname) {
+        elem.tasks.push(newtask);
+        elem.tasksNumbers.mewTask =elem.tasksNumbers.mewTask+1
+      }
+    });
+
+    localStorage.setItem("user", JSON.stringify(data));
+
+    setAssign("");
+    setCategory("");
+    setDate("");
+    setDesc("");
+    setTitle("");
   };
 
   return (
     <div className="min-h-screen p-4 md:p-8 max-w-7xl mx-auto text-black ">
-      <Header logOutuser={logOutuser}  changeUser={changeUser}/>
+      <Header logOutuser={logOutuser} changeUser={changeUser} />
       {/* Create Task Section */}
       <div className="bg-white shadow-xl rounded-xl  p-6">
         <h2 className="text-3xl font-bold mb-8 text-center">Create New Task</h2>
@@ -51,7 +74,7 @@ const [task, setTask] = useState({})
                   name="title"
                   placeholder="Enter task title"
                   value={title}
-                  onChange={(e)=>setTitle(e.target.value)}
+                  onChange={(e) => setTitle(e.target.value)}
                   className="w-full p-3 outline-none bg-gray-50 rounded-lg border border-gray-300 focus:ring-1 focus:ring-blue-500 transition-all"
                 />
               </div>
@@ -68,7 +91,7 @@ const [task, setTask] = useState({})
                   id="date"
                   name="date"
                   value={date}
-                  onChange={(e)=>setDate(e.target.value)}
+                  onChange={(e) => setDate(e.target.value)}
                   className="w-full p-3 outline-none bg-gray-50 rounded-lg border border-gray-300 focus:ring-1 focus:ring-blue-500 transition-all"
                 />
               </div>
@@ -86,7 +109,7 @@ const [task, setTask] = useState({})
                   name="assignTo"
                   placeholder="Team member name"
                   value={assign}
-                  onChange={(e)=>setAssign(e.target.value)}
+                  onChange={(e) => setAssign(e.target.value)}
                   className="w-full p-3 outline-none bg-gray-50 rounded-lg border border-gray-300 focus:ring-1 focus:ring-blue-500 transition-all"
                 />
               </div>
@@ -102,11 +125,9 @@ const [task, setTask] = useState({})
                   id="category"
                   name="category"
                   value={category}
-                  onChange={(e)=>setCategory(e.target.value)}
+                  onChange={(e) => setCategory(e.target.value)}
                   className="w-full p-3 outline-none bg-gray-50 rounded-lg border border-gray-300 focus:ring-1 focus:ring-blue-500 transition-all"
-                >
-                  
-                </input>
+                ></input>
               </div>
             </div>
 
@@ -124,7 +145,7 @@ const [task, setTask] = useState({})
                   name="description"
                   placeholder="Describe the task in detail..."
                   value={desc}
-                  onChange={(e)=>setDesc(e.target.value)}
+                  onChange={(e) => setDesc(e.target.value)}
                   className="w-full outline-none h-[calc(100%-2rem)] p-3 bg-gray-50 rounded-lg border border-gray-300 focus:ring-1 focus:ring-blue-500 transition-all resize-none"
                 ></textarea>
               </div>

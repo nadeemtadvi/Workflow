@@ -1,12 +1,19 @@
 const users = [
   {
     id: 1,
-    email: "employee1@example.com",
+    firstname: "Aarav",
+    email: "a@a.com",
     password: "123",
+    taskNumbers: {
+      active: 1,
+      newTask: 1,
+      completed: 1,
+      failed: 1,
+    },
     tasks: [
       {
         active: true,
-        newTask: true,
+        newTask: false,
         completed: false,
         failed: false,
         title: "Design Homepage",
@@ -34,12 +41,29 @@ const users = [
         date: "2025-01-05",
         category: "Documentation",
       },
+      {
+        active: false,
+        newTask: true,
+        completed: false,
+        failed: false,
+        title: "Update Documentation",
+        description: "Add recent project changes to the user guide.",
+        date: "2025-01-05",
+        category: "Documentation",
+      },
     ],
   },
   {
     id: 2,
+    firstname: "Ishaan",
     email: "employee2@example.com",
     password: "123",
+    taskNumbers: {
+      active: 1,
+      newTask: 1,
+      completed: 1,
+      failed: 0,
+    },
     tasks: [
       {
         active: true,
@@ -65,8 +89,15 @@ const users = [
   },
   {
     id: 3,
+    firstname: "Vihaan",
     email: "employee3@example.com",
     password: "123",
+    taskNumbers: {
+      active: 2,
+      newTask: 1,
+      completed: 1,
+      failed: 0,
+    },
     tasks: [
       {
         active: true,
@@ -102,8 +133,15 @@ const users = [
   },
   {
     id: 4,
+    firstname: "Vivaan",
     email: "employee4@example.com",
     password: "123",
+    taskNumbers: {
+      active: 1,
+      newTask: 1,
+      completed: 2,
+      failed: 1,
+    },
     tasks: [
       {
         active: true,
@@ -129,8 +167,15 @@ const users = [
   },
   {
     id: 5,
+    firstname: "Arjun",
     email: "employee5@example.com",
     password: "123",
+    taskNumbers: {
+      active: 1,
+      newTask: 1,
+      completed: 1,
+      failed: 0,
+    },
     tasks: [
       {
         active: true,
@@ -172,5 +217,5 @@ export const setLocalStorage = () => {
 export const getLocalStorage = () => {
   const users = JSON.parse(localStorage.getItem("users"));
   const admins = JSON.parse(localStorage.getItem("admins"));
-  // return { users, admins };
+  return { users, admins };
 };

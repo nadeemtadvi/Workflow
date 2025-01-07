@@ -1,8 +1,7 @@
 import React from 'react'
 
 const Header = ({logOutuser, changeUser}) => {
-  console.log('header changeUser',changeUser);
-  
+  // const user = changeUser();
   return (
     <div className="p-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold">{changeUser}</h1>

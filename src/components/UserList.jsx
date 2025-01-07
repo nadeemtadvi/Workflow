@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UserList = ({authData}) => {
+const UserList = ({userData}) => {
   return (
     <div className="mt-8 bg-white rounded-xl shadow-xl p-6">
     <h2 className="text-3xl font-bold mb-6">User List</h2>
@@ -11,7 +11,7 @@ const UserList = ({authData}) => {
       <h4 className="text-2xl py-1.5 bg-green-500">Completed</h4>
       <h4 className="text-2xl py-1.5 bg-red-500 ">Failed</h4>
     </div>
-    {authData.users.map((elem, idx) => (
+    {userData.users.map((elem, idx) => (
       <div key={idx} className="grid grid-cols-5 text-center pt-2 ">
         <h4 className="text-xl py-1.5  text-start pl-2">
           {elem.firstname}

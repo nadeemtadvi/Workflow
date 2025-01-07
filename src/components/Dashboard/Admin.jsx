@@ -4,19 +4,17 @@ import { AuthContext } from "../../context/AuthProvider";
 import UserList from "../UserList";
 
 const Admin = ({ logOutuser, changeUser }) => {
-  const authData = useContext(AuthContext);
-  console.log(authData);
+  const [userData, setUserData] = useContext(AuthContext);
+
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [date, setDate] = useState("");
   const [assign, setAssign] = useState("");
   const [category, setCategory] = useState("");
-
-  const [newtask, setnewTask] = useState({});
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    setnewTask({
+
+    const task = {
       title,
       desc,
       assign,
@@ -26,17 +24,22 @@ const Admin = ({ logOutuser, changeUser }) => {
       newTask: true,
       failed: false,
       completed: false,
-    });
-    const data = JSON.parse(localStorage.getItem("users"));
+    };
+
+    let data = [...userData.users];
 
     data.forEach(function (elem) {
-      if (assign == elem.firstname) {
-        elem.tasks.push(newtask);
-        elem.tasksNumbers.mewTask =elem.tasksNumbers.mewTask+1
+      if (assign === elem.firstname) {
+        if (!elem.tasksNumbers) {
+          elem.tasksNumbers = { newTask: 0 };
+        }
+        elem.tasks.push(task);
+        elem.tasksNumbers.newTask = (elem.tasksNumbers.newTask || 0) + 1;
       }
     });
 
-    localStorage.setItem("user", JSON.stringify(data));
+    setUserData({ ...userData, users: data });
+    console.log(data);
 
     setAssign("");
     setCategory("");
@@ -44,7 +47,6 @@ const Admin = ({ logOutuser, changeUser }) => {
     setDesc("");
     setTitle("");
   };
-
   return (
     <div className="min-h-screen p-4 md:p-8 max-w-7xl mx-auto text-black ">
       <Header logOutuser={logOutuser} changeUser={changeUser} />
@@ -175,7 +177,7 @@ const Admin = ({ logOutuser, changeUser }) => {
         </form>
       </div>
 
-      <UserList authData={authData} />
+      <UserList userData={userData} />
     </div>
   );
 };

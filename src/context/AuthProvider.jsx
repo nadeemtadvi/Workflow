@@ -10,8 +10,8 @@ const AuthProvider = ({ children }) => {
     if (!localStorage.getItem("users") || !localStorage.getItem("admins")) {
       setLocalStorage();
     }
-    const { users, admins } = getLocalStorage();
-    setUserData({ users, admins });
+    const { users } = getLocalStorage();
+    setUserData({ users });
   }, []);
 
   // const data = getLocalStorage()
@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
 
   return (
     <div>
-      <AuthContext.Provider value={userData}>{children}</AuthContext.Provider>
+      <AuthContext.Provider value={[userData, setUserData]}>{children}</AuthContext.Provider>
     </div>
   );
 };

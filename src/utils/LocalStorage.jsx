@@ -56,7 +56,7 @@ const users = [
   {
     id: 2,
     firstname: "Ishaan",
-    email: "employee2@example.com",
+    email: "ishaan@example.com",
     password: "123",
     taskNumbers: {
       active: 1,
@@ -90,7 +90,7 @@ const users = [
   {
     id: 3,
     firstname: "Vihaan",
-    email: "employee3@example.com",
+    email: "vihaan@example.com",
     password: "123",
     taskNumbers: {
       active: 2,
@@ -134,7 +134,7 @@ const users = [
   {
     id: 4,
     firstname: "Vivaan",
-    email: "employee4@example.com",
+    email: "vivaan@example.com",
     password: "123",
     taskNumbers: {
       active: 1,
@@ -168,7 +168,7 @@ const users = [
   {
     id: 5,
     firstname: "Arjun",
-    email: "employee5@example.com",
+    email: "arjun@example.com",
     password: "123",
     taskNumbers: {
       active: 1,

@@ -12,8 +12,9 @@ const Login = ({ handleLogin }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 bg-cover">
-      <div className="max-w-md w-full p-6 bg-white rounded shadow">
+    <div className="relative min-h-screen md:flex items-center justify-center bg-gray-100 bg-cover">
+      
+      <div className="max-w-md w-full p-6 bg-white rounded shadow m-1">
         <h2 className="text-center text-3xl font-semibold">Login</h2>
         <form onSubmit={submitHandler} className="mt-6">
           <div>
@@ -67,7 +68,14 @@ const Login = ({ handleLogin }) => {
             Sign in
           </button>
         </form>
+        <div className=" mt-4 top-[5%] left-[5%] p-5 bg-white text-gray-600 rounded m-1">
+          <h1 className="text-lg mb-2 text-red-600 font-semibold italic">Warning</h1>
+        <h2 className="text-lg mb-2 text-gray-800 font-semibold">Login Credential</h2>
+        <h2 className="text-sm ">Email : admin@example.com  Pswd : 123</h2>
+        <h2 className="text-sm ">Email : a@a.com  Pswd : 123</h2>
       </div>
+      </div>
+     
     </div>
   );
 };

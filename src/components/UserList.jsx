@@ -14,7 +14,7 @@ const UserList = ({userData}) => {
     {userData.users.map((elem, idx) => (
       <div key={idx} className="grid grid-cols-5 text-center pt-2 ">
         <h4 className="text-xl py-1.5  text-start pl-2">
-          {elem.firstname}
+          {elem.firstname} <span className='text-sm text-gray-600 italic'>{elem.email}</span> 
         </h4>
         <h4 className="text-xl py-1.5  text-gray-500">
           {elem.taskNumbers.active}
